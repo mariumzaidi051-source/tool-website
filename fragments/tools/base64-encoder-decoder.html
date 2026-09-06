@@ -1,0 +1,21 @@
+<div class="panel">
+  <div class="panel-title">Input</div>
+  <div class="row" style="margin-bottom:12px;">
+    <div class="field" style="margin-bottom:0;">
+      <label for="b64-mode">Mode</label>
+      <select id="b64-mode"><option value="encode">Encode to Base64</option><option value="decode">Decode from Base64</option></select>
+    </div>
+  </div>
+  <textarea id="tool-input" placeholder="Type or paste text here..." style="min-height:200px;"></textarea>
+  <div class="error-msg" id="tool-error">That doesn't look like valid Base64. Please check your input.</div>
+</div>
+<div class="panel">
+  <div class="panel-title">Result</div>
+  <div class="result-box empty" id="tool-output" aria-live="polite">Your result will appear here.</div>
+  <div class="result-actions">
+    <button class="btn btn-sm" id="btn-copy">Copy result</button>
+    <button class="btn btn-sm" id="btn-download">Download .txt</button>
+    <button class="btn btn-sm" id="btn-reset">Reset</button>
+    <button class="btn btn-sm" id="btn-share">Share result</button>
+  </div>
+</div>

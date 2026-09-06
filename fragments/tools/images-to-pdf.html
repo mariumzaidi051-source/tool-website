@@ -1,0 +1,18 @@
+<div class="panel">
+  <div class="panel-title">Upload images</div>
+  <div class="dropzone" id="pdf-dropzone" tabindex="0" role="button" aria-label="Upload image files">
+    <p><strong>Click to choose images</strong> or drag and drop them here.</p>
+    <p class="hint">JPG and PNG supported. Reorder with the arrows — each image becomes one page.</p>
+  </div>
+  <input type="file" id="pdf-file-input" accept="image/jpeg,image/png" multiple class="visually-hidden">
+  <div class="file-chip-list" id="pdf-file-list"></div>
+  <div class="error-msg" id="tool-error">Please add at least one image.</div>
+</div>
+<div class="panel">
+  <div class="panel-title">Create PDF</div>
+  <div class="result-box empty" id="tool-output" aria-live="polite">Add images above to build a PDF.</div>
+  <div class="result-actions">
+    <button class="btn btn-sm btn-primary" id="btn-build">Create &amp; download PDF</button>
+    <button class="btn btn-sm" id="btn-reset">Clear all</button>
+  </div>
+</div>

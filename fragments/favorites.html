@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Favorites</h1>
+    <p>Your starred tools, saved locally in this browser.</p>
+  </div>
+  <div class="tool-grid" id="favorites-grid"></div>
+  <div class="empty-state" id="favorites-empty" style="display:none;">
+    <div class="icon" data-icon="star" data-icon-size="34"></div>
+    <h3>Nothing here yet</h3>
+    <p>Star your favorite tools and they'll appear here.</p>
+    <a class="btn btn-primary" href="tools.html" style="margin-top:16px;">Browse tools</a>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function render(){
+    var ids = TOLVEXA.Storage.getFavorites();
+    var grid = document.getElementById('favorites-grid');
+    var empty = document.getElementById('favorites-empty');
+    var tools = ids.map(function(id){ return TOLVEXA.toolsById[id]; }).filter(Boolean);
+    if(tools.length === 0){ grid.innerHTML=''; empty.style.display='block'; return; }
+    empty.style.display='none';
+    // toolCardHTML already bakes in the correct star state and icon markup, no extra painting needed.
+    grid.innerHTML = tools.map(function(t){ return TOLVEXA.toolCardHTML(t); }).join('');
+  }
+  render();
+  // Re-render whenever a favorite is toggled anywhere on the page (including from this grid itself).
+  document.addEventListener('tolvexa:favorites-changed', render);
+});
+</script>

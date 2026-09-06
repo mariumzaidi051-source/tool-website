@@ -1,0 +1,24 @@
+<div class="panel">
+  <div class="panel-title">Calculate</div>
+  <div class="row">
+    <div class="field">
+      <label for="dc-price">Original price</label>
+      <input type="number" id="dc-price" placeholder="e.g. 80" inputmode="decimal" min="0">
+    </div>
+    <div class="field">
+      <label for="dc-percent">Discount percentage</label>
+      <input type="number" id="dc-percent" placeholder="e.g. 25" inputmode="decimal" min="0" max="100">
+    </div>
+  </div>
+  <div class="error-msg" id="tool-error">Please enter a valid price and a discount between 0 and 100.</div>
+  <div class="stat-grid" id="tool-stats"></div>
+</div>
+<div class="panel">
+  <div class="panel-title">Result</div>
+  <div class="result-box empty" id="tool-output" aria-live="polite">Enter a price and discount to see the sale price.</div>
+  <div class="result-actions">
+    <button class="btn btn-sm" id="btn-copy">Copy result</button>
+    <button class="btn btn-sm" id="btn-reset">Reset</button>
+    <button class="btn btn-sm" id="btn-share">Share result</button>
+  </div>
+</div>

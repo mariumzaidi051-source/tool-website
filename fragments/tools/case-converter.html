@@ -1,0 +1,26 @@
+<div class="panel">
+  <div class="panel-title">Your text</div>
+  <textarea id="tool-input" placeholder="Type or paste text to convert..." style="min-height:160px;font-family:var(--font-body);"></textarea>
+  <div class="field" style="margin-top:14px;">
+    <label for="case-mode">Convert to</label>
+    <select id="case-mode">
+      <option value="upper">UPPERCASE</option>
+      <option value="lower">lowercase</option>
+      <option value="title">Title Case</option>
+      <option value="sentence">Sentence case</option>
+      <option value="camel">camelCase</option>
+      <option value="snake">snake_case</option>
+      <option value="kebab">kebab-case</option>
+    </select>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-title">Result</div>
+  <div class="result-box empty" id="tool-output" aria-live="polite">Your converted text will appear here.</div>
+  <div class="result-actions">
+    <button class="btn btn-sm" id="btn-copy">Copy result</button>
+    <button class="btn btn-sm" id="btn-download">Download .txt</button>
+    <button class="btn btn-sm" id="btn-reset">Reset</button>
+    <button class="btn btn-sm" id="btn-share">Share result</button>
+  </div>
+</div>

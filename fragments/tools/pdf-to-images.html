@@ -1,0 +1,14 @@
+<div class="panel">
+  <div class="panel-title">Upload a PDF</div>
+  <div class="dropzone" id="pdf-dropzone" tabindex="0" role="button" aria-label="Upload a PDF file">
+    <p><strong>Click to choose a PDF file</strong> or drag and drop it here.</p>
+  </div>
+  <input type="file" id="pdf-file-input" accept="application/pdf" class="visually-hidden">
+  <div class="file-chip-list" id="pdf-file-list"></div>
+  <div class="error-msg" id="tool-error">That PDF could not be read. It may be corrupted or password-protected.</div>
+</div>
+<div class="panel">
+  <div class="panel-title">Pages</div>
+  <div class="result-box empty" id="tool-output" aria-live="polite">Upload a PDF to convert its pages to images.</div>
+  <div id="pdf-image-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:14px;"></div>
+</div>

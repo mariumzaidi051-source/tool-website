@@ -1,0 +1,24 @@
+<div class="panel">
+  <div class="panel-title">Dates</div>
+  <div class="row">
+    <div class="field">
+      <label for="age-dob">Date of birth</label>
+      <input type="date" id="age-dob">
+    </div>
+    <div class="field">
+      <label for="age-asof">Calculate age as of</label>
+      <input type="date" id="age-asof">
+    </div>
+  </div>
+  <div class="error-msg" id="tool-error">Please enter a valid date of birth that isn't in the future.</div>
+  <div class="stat-grid" id="tool-stats"></div>
+</div>
+<div class="panel">
+  <div class="panel-title">Result</div>
+  <div class="result-box empty" id="tool-output" aria-live="polite">Enter a date of birth to calculate age.</div>
+  <div class="result-actions">
+    <button class="btn btn-sm" id="btn-copy">Copy result</button>
+    <button class="btn btn-sm" id="btn-reset">Reset</button>
+    <button class="btn btn-sm" id="btn-share">Share result</button>
+  </div>
+</div>

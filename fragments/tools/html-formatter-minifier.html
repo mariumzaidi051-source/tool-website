@@ -1,0 +1,20 @@
+<div class="panel">
+  <div class="panel-title">Your HTML</div>
+  <textarea id="tool-input" placeholder="<div><p>Paste your HTML here</p></div>" style="min-height:220px;"></textarea>
+  <div class="row" style="margin-top:12px;">
+    <div class="field" style="margin-bottom:0;">
+      <label for="html-mode">Mode</label>
+      <select id="html-mode"><option value="format">Beautify (readable)</option><option value="minify">Minify (compact)</option></select>
+    </div>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-title">Result</div>
+  <div class="result-box empty" id="tool-output" aria-live="polite">Paste HTML above to format or minify it.</div>
+  <div class="result-actions">
+    <button class="btn btn-sm" id="btn-copy">Copy result</button>
+    <button class="btn btn-sm" id="btn-download">Download .html</button>
+    <button class="btn btn-sm" id="btn-reset">Reset</button>
+    <button class="btn btn-sm" id="btn-share">Share result</button>
+  </div>
+</div>

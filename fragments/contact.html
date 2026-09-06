@@ -1,0 +1,46 @@
+<div class="container container-narrow">
+  <div class="page-header">
+    <h1>Contact</h1>
+    <p>Found a bug, have a tool idea, or need help? Send us a message.</p>
+  </div>
+  <div class="panel">
+    <form id="contact-form" novalidate>
+      <div class="field">
+        <label for="c-name">Name</label>
+        <input type="text" id="c-name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="c-email">Email</label>
+        <input type="email" id="c-email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" style="font-family:inherit;min-height:140px;" required></textarea>
+      </div>
+      <div class="error-msg" id="contact-error">Please fill in every field with a valid email address.</div>
+      <button class="btn btn-primary" type="submit">Send message</button>
+    </form>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var form = document.getElementById('contact-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('c-name').value.trim();
+    var email = document.getElementById('c-email').value.trim();
+    var message = document.getElementById('c-message').value.trim();
+    var errBox = document.getElementById('contact-error');
+    var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!name || !message || !validEmail){
+      errBox.classList.add('show');
+      return;
+    }
+    errBox.classList.remove('show');
+    var subject = encodeURIComponent('TOLVEXA contact form — ' + name);
+    var body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:hello@tolvexa.com?subject=' + subject + '&body=' + body;
+    TOLVEXA.toast('Opening your email app...');
+  });
+});
+</script>

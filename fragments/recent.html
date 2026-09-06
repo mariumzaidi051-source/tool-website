@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+    <div>
+      <h1>Recently Used</h1>
+      <p>The last tools you opened, stored only in this browser.</p>
+    </div>
+    <button class="btn btn-ghost btn-sm" id="clear-recent" type="button" style="display:none;">Clear all</button>
+  </div>
+  <div class="recent-list" id="recent-list"></div>
+  <div class="empty-state" id="recent-empty" style="display:none;">
+    <div class="icon" data-icon="clock" data-icon-size="34"></div>
+    <h3>No recently used tools</h3>
+    <p>Open a tool to see it here.</p>
+    <a class="btn btn-primary" href="tools.html" style="margin-top:16px;">Browse tools</a>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  function timeAgo(ts){
+    var s = Math.floor((Date.now()-ts)/1000);
+    if(s < 60) return 'Just now';
+    var m = Math.floor(s/60); if(m < 60) return m + (m===1?' minute ago':' minutes ago');
+    var h = Math.floor(m/60); if(h < 24) return h + (h===1?' hour ago':' hours ago');
+    var d = Math.floor(h/24); return d + (d===1?' day ago':' days ago');
+  }
+  function render(){
+    var entries = TOLVEXA.Storage.getRecent();
+    var list = document.getElementById('recent-list');
+    var empty = document.getElementById('recent-empty');
+    var clearBtn = document.getElementById('clear-recent');
+    var rows = entries.map(function(e){ return {entry:e, tool: TOLVEXA.toolsById[e.id]}; }).filter(function(r){ return r.tool; });
+    if(rows.length === 0){ list.innerHTML=''; empty.style.display='block'; clearBtn.style.display='none'; return; }
+    empty.style.display='none'; clearBtn.style.display='inline-flex';
+    list.innerHTML = rows.map(function(r){
+      var cat = TOLVEXA.catsById[r.tool.category] || {};
+      return '<div class="recent-item">' +
+        '<div class="tool-icon" style="background:'+cat.accent+'22;color:'+cat.accent+'">'+TOLVEXA.icon(cat.icon||'grid',20)+'</div>' +
+        '<div class="info"><h3 style="margin:0;font-size:1rem;"><a href="'+TOLVEXA.toolUrl(r.tool.id)+'">'+r.tool.name+'</a></h3>' +
+        '<div class="when">'+timeAgo(r.entry.ts)+'</div></div>' +
+        '<a class="btn btn-sm" href="'+TOLVEXA.toolUrl(r.tool.id)+'">Open</a>' +
+        '<button class="btn btn-sm btn-icon btn-ghost" data-remove-recent="'+r.tool.id+'" aria-label="Remove from recent">'+TOLVEXA.icon('x',16)+'</button>' +
+      '</div>';
+    }).join('');
+  }
+  render();
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest && e.target.closest('[data-remove-recent]');
+    if(btn){ TOLVEXA.Storage.removeRecent(btn.getAttribute('data-remove-recent')); }
+    if(e.target && e.target.id === 'clear-recent'){ TOLVEXA.Storage.clearRecent(); }
+  });
+  document.addEventListener('tolvexa:recent-changed', render);
+});
+</script>

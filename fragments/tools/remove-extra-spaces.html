@@ -1,0 +1,18 @@
+<div class="panel">
+  <div class="panel-title">Your text</div>
+  <textarea id="tool-input" placeholder="Paste messy text with extra spaces or blank lines..." style="min-height:180px;font-family:var(--font-body);"></textarea>
+  <div class="checkbox-row" style="margin-top:12px;">
+    <input type="checkbox" id="opt-blanklines" checked>
+    <label for="opt-blanklines">Also collapse extra blank lines</label>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-title">Result</div>
+  <div class="result-box empty" id="tool-output" aria-live="polite">Your cleaned text will appear here.</div>
+  <div class="result-actions">
+    <button class="btn btn-sm" id="btn-copy">Copy result</button>
+    <button class="btn btn-sm" id="btn-download">Download .txt</button>
+    <button class="btn btn-sm" id="btn-reset">Reset</button>
+    <button class="btn btn-sm" id="btn-share">Share result</button>
+  </div>
+</div>

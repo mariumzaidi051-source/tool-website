@@ -1,0 +1,18 @@
+<div class="panel">
+  <div class="panel-title">Upload PDF files</div>
+  <div class="dropzone" id="pdf-dropzone" tabindex="0" role="button" aria-label="Upload PDF files">
+    <p><strong>Click to choose PDF files</strong> or drag and drop them here.</p>
+    <p class="hint">You can select multiple files. Files are merged in the order shown below.</p>
+  </div>
+  <input type="file" id="pdf-file-input" accept="application/pdf" multiple class="visually-hidden">
+  <div class="file-chip-list" id="pdf-file-list"></div>
+  <div class="error-msg" id="tool-error">Please add at least two PDF files to merge.</div>
+</div>
+<div class="panel">
+  <div class="panel-title">Merge</div>
+  <div class="result-box empty" id="tool-output" aria-live="polite">Add PDF files above, then merge them.</div>
+  <div class="result-actions">
+    <button class="btn btn-sm btn-primary" id="btn-merge">Merge &amp; download</button>
+    <button class="btn btn-sm" id="btn-reset">Clear all</button>
+  </div>
+</div>

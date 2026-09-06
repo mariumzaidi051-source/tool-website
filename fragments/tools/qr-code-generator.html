@@ -1,0 +1,58 @@
+<div class="panel">
+  <div class="panel-title">Content</div>
+  <div class="field">
+    <label for="qr-type">Type</label>
+    <select id="qr-type">
+      <option value="url">URL / Text</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+      <option value="wifi">Wi-Fi</option>
+    </select>
+  </div>
+
+  <div id="qr-fields-url">
+    <div class="field"><label for="qr-text">URL or text</label><textarea id="qr-text" placeholder="https://example.com" style="min-height:90px;font-family:var(--font-body);"></textarea></div>
+  </div>
+  <div id="qr-fields-email" style="display:none;">
+    <div class="row">
+      <div class="field"><label for="qr-email">Email address</label><input type="email" id="qr-email" placeholder="hello@example.com"></div>
+      <div class="field"><label for="qr-email-subject">Subject (optional)</label><input type="text" id="qr-email-subject"></div>
+    </div>
+  </div>
+  <div id="qr-fields-phone" style="display:none;">
+    <div class="field"><label for="qr-phone">Phone number</label><input type="tel" id="qr-phone" placeholder="+1 555 123 4567"></div>
+  </div>
+  <div id="qr-fields-wifi" style="display:none;">
+    <div class="row">
+      <div class="field"><label for="qr-wifi-ssid">Network name (SSID)</label><input type="text" id="qr-wifi-ssid"></div>
+      <div class="field"><label for="qr-wifi-pass">Password</label><input type="text" id="qr-wifi-pass"></div>
+    </div>
+    <div class="field">
+      <label for="qr-wifi-enc">Security</label>
+      <select id="qr-wifi-enc"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None</option></select>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:6px;">
+    <div class="field">
+      <label for="qr-size">Size</label>
+      <select id="qr-size"><option value="180">Small (180px)</option><option value="260" selected>Medium (260px)</option><option value="360">Large (360px)</option></select>
+    </div>
+    <div class="field">
+      <label for="qr-ecc">Error correction</label>
+      <select id="qr-ecc"><option value="L">Low (L)</option><option value="M" selected>Medium (M)</option><option value="Q">Quartile (Q)</option><option value="H">High (H)</option></select>
+    </div>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-title">Preview</div>
+  <div id="qr-preview" style="display:flex;justify-content:center;padding:20px;background:#fff;border-radius:var(--radius-sm);min-height:200px;align-items:center;">
+    <span style="color:#999;font-size:0.9rem;">Enter details to generate a QR code.</span>
+  </div>
+  <div class="result-actions">
+    <button class="btn btn-sm" id="btn-download">Download PNG</button>
+    <button class="btn btn-sm" id="btn-copy">Copy content</button>
+    <button class="btn btn-sm" id="btn-reset">Reset</button>
+    <button class="btn btn-sm" id="btn-share">Share</button>
+  </div>
+</div>
